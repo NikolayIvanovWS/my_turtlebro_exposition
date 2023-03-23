@@ -1,0 +1,9 @@
+<launch>
+  <!-- Run Speech service -->
+    <arg name="button_data_file" default="$(find my_turtlebro_exposition)/data/button_text.toml"/>
+
+    <include file="$(find turtlebro_speech)/launch/speech_service.launch"/>
+
+    <node pkg="my_turtlebro_exposition" type="speak_exposition.py" name="exposition_speaker" output="screen" respawn="false"/>
+        <param name="button_data_file" value="$(arg button_data_file)"/>
+</launch>
